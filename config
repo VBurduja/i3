@@ -29,10 +29,10 @@ bindsym $super+Shift+g exec geany
 bindsym $super+b exec gnome-terminal -e nmtui
 bindsym $super+Print exec flameshot gui
 
-#change volume
-bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+
-bindsym XF86AudioLowerVolume exec amixer -q set Master 5%-
-bindsym XF86AudioMute exec amixer set Master toggle
+# Pulse Audio controls
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -5% #decrease sound volume
+bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle # mute sound
 
 # music control
 bindsym XF86AudioNext exec mpc next
@@ -62,6 +62,8 @@ bindsym $super+h split h
 # split in vertical orientation
 bindsym $super+v split v
 
+bindsym $super+t split toggle
+
 # enter fullscreen mode for the focused container
 bindsym $super+f fullscreen toggle
 
@@ -77,6 +79,8 @@ bindsym $super+Shift+space focus mode_toggle
 # switch to workspace
 bindsym $alt+Control+Right workspace next
 bindsym $alt+Control+Left workspace prev
+bindsym $alt+Tab workspace prev
+
 bindsym $super+1 workspace 1
 bindsym $super+2 workspace 2
 bindsym $super+3 workspace 3
